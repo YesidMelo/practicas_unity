@@ -16,9 +16,9 @@ public static class ExtensionesString {
         return textura;
     }
 
-    public static ModeloBase convertirAObjeto<T>(this string json) where T : ModeloBase,new() {
+    public static T convertirAObjeto<T>(this string json) where T : ModeloBase {
         T objetoFinal = JsonUtility.FromJson<T>(json);
-        return new T();
+        return objetoFinal;
     }
 
 }
