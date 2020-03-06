@@ -21,4 +21,8 @@ public static class ExtensionesString {
         return objetoFinal;
     }
 
+    public static string convertirAFloat(this string numero) {
+        return "";
+    }
+
 }
