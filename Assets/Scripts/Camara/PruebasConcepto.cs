@@ -5,9 +5,10 @@ using UnityEngine;
 public class PruebasConcepto : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject prefab;
     void Start()
     {
-        cargarMarcador();
+        //crearListaComentarios();
     }
 
     private void cargarMarcador(){
@@ -17,7 +18,7 @@ public class PruebasConcepto : MonoBehaviour
 
         carga
             .conComentario(comentario)
-            .conEscuchadorGameObjectGenerado(marcadorGenerado)
+            .conEscuchadorGameObjectGenerado(objetoGenerado => { })
             .cargarMarcador()
             ;
 
@@ -25,12 +26,16 @@ public class PruebasConcepto : MonoBehaviour
 
     }
 
-    private void marcadorGenerado(GameObject objeto){
-
-    }
-
     private void crearListaComentarios(){
         ContenedorListaComentarios lista = Mocks.ListaMarcadores.convertirAObjeto<ContenedorListaComentarios>();
+        ManejadorMarcadores manejador = new ManejadorMarcadores();
+
+        manejador
+            .conListaMarcadores(lista.ListaComentarios)
+            .conPrefabricado(prefab)
+            .cargarListaComentarios()
+            ;
+
         Debug.Log(lista.ListaComentarios.Length);
     }
 

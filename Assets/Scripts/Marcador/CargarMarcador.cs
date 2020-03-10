@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CargarMarcador {
-
-
+    
+    private GameObject prefab;
+    public CargarMarcador conPrefab(GameObject prefab){
+        this.prefab = prefab;
+        return this;
+    }
     private  Comentario comentario;
     public CargarMarcador conComentario(Comentario comentario){
         this.comentario = comentario;
@@ -14,6 +18,12 @@ public class CargarMarcador {
     private Delgados.pasarGameObject escuchadorDeGameObjects;
     public CargarMarcador conEscuchadorGameObjectGenerado(Delgados.pasarGameObject escuchadorDeGameObjects){
         this.escuchadorDeGameObjects = escuchadorDeGameObjects;
+        return this;
+    }
+
+    public Delgados.pasarComentario escuchadorComentario;
+    public CargarMarcador conEscuchadorComentarioSeleccionado(Delgados.pasarComentario escuchadorComentario){
+        this.escuchadorComentario = escuchadorComentario;
         return this;
     }
 

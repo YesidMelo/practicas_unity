@@ -14,23 +14,35 @@ public class EsuchadorToquePantalla : MonoBehaviour
     }
 
     private bool escuchadorToqueCursor(){
+
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("Click mouse izquierdo ");
-            
+            //Debug.Log("Click mouse izquierdo ");
+            //verificaObjetoTocado();
             return true;
         }
 
         if(Input.GetMouseButtonDown(1)){
-            Debug.Log("Click mouse derecho");
+            //Debug.Log("Click mouse derecho");
             return true;
         }
 
         if(Input.GetMouseButtonDown(2)){
-            Debug.Log("Click mouse centro");
+            //Debug.Log("Click mouse centro");
             return true;
         }
 
         return false;
+    }
+
+    private void verificaObjetoTocado(){
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(!Physics.Raycast(ray,out hit,100.0f)){ return ; }
+        if(hit.transform == null ) return;
+
+        Debug.Log(hit.transform.gameObject.name);
+
     }
 
 
@@ -43,6 +55,7 @@ public class EsuchadorToquePantalla : MonoBehaviour
         .crearGameobject();
         
     }
+    
 
     public void ponerObjetoEnEscenario(GameObject objeto){
 
