@@ -9,7 +9,7 @@ public class PruebasConcepto : MonoBehaviour
     void Start()
     {
         //crearListaComentarios();
-        cargarMarcador();
+        //cargarMarcador();
     }
 
     private void cargarMarcador(){
