@@ -5,38 +5,38 @@ using UnityEngine;
 public class PruebasConcepto : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject prefab;
+    public GameObject apuntador;
     void Start()
     {
         //crearListaComentarios();
+        cargarMarcador();
     }
 
     private void cargarMarcador(){
         string marcador = Mocks.Marcador;
         Comentario comentario = marcador.convertirAObjeto<Comentario>();
-        CargarMarcador carga = new CargarMarcador();
+        GameObject apun = Instantiate(apuntador,new Vector3(0f,0f,0f),Quaternion.identity);
 
-        carga
-            .conComentario(comentario)
-            .conEscuchadorGameObjectGenerado(objetoGenerado => { })
-            .cargarMarcador()
-            ;
+        ManejadorIndicador manejador = apun.GetComponent("ManejadorIndicador") as ManejadorIndicador;
+        manejador.conComentario(comentario).actualizarVista();
 
         Debug.Log(comentario.coordenadas.x);
 
     }
 
     private void crearListaComentarios(){
+        /*
         ContenedorListaComentarios lista = Mocks.ListaMarcadores.convertirAObjeto<ContenedorListaComentarios>();
         ManejadorMarcadores manejador = new ManejadorMarcadores();
 
         manejador
             .conListaMarcadores(lista.ListaComentarios)
-            .conPrefabricado(prefab)
+            .conPrefabricado(apuntador)
             .cargarListaComentarios()
             ;
 
         Debug.Log(lista.ListaComentarios.Length);
+        */
     }
 
     // Update is called once per frame

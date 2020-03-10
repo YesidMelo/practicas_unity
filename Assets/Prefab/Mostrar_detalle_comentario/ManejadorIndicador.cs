@@ -14,11 +14,10 @@ public class ManejadorIndicador : MonoBehaviour
         capturarElementosDeVista();
     }
 
-
-
+    public GameObject icono;
     private void capturarElementosDeVista(){
         
-        GameObject icono = GameObject.Find(name+"/icono");
+        icono = GameObject.Find(name+"/icono");
         Debug.Log("Nombre : "+name+"/"+icono.name);
         
     }
@@ -53,14 +52,42 @@ public class ManejadorIndicador : MonoBehaviour
         //Debug.Log(hit.transform.gameObject.name);
 
     }
-
-    
-
     public GameObject dialogo;
     private void mostrarDialogo(){
         if(LogicaMostrarDetalleComentario.mostrandoDialogoDetalleIndicador){ return ;}
 
-        Instantiate(dialogo, new Vector3(0f,0f,0f),Quaternion.identity);
+        GameObject dialogoMostrado = Instantiate(dialogo, new Vector3(0f,0f,0f),Quaternion.identity);
+        
         LogicaMostrarDetalleComentario.mostrandoDialogoDetalleIndicador = true;
+
+        if(comentario == null ){ return ;}
+        LogicaMostrarDetalleComentario logicaDialogo = (dialogoMostrado.GetComponent("LogicaMostrarDetalleComentario") as LogicaMostrarDetalleComentario);
+
+        logicaDialogo
+            .conMensaje(comentario.mensaje)
+            .conTitulo(comentario.titulo)
+            .ActualizarContenido();
+
     }
+
+    private Comentario comentario ;
+    public ManejadorIndicador conComentario(Comentario comentario) {
+        this.comentario  = comentario;
+        return this;
+    }
+
+    public void actualizarVista() {
+        if(comentario == null ){ return ;}
+        actualizarPocision();
+        actualizarIcono();
+    }
+
+    private void actualizarPocision(){
+        GameObject.Find(name).transform.position = new Vector3(comentario.coordenadas.x,comentario.coordenadas.y,comentario.coordenadas.z);
+    }
+
+    private void actualizarIcono(){
+        icono.GetComponent<Renderer>().material.mainTexture = comentario.icono.convertirATexture2D();
+    }
+
 }

@@ -19,7 +19,7 @@ public class LogicaMostrarDetalleComentario : MonoBehaviour
     public GameObject ContenedorPrincipal;
 
     
-    private string textoAMostrar;
+
 
      void Start(){
          conEscuchadores();
@@ -33,13 +33,20 @@ public class LogicaMostrarDetalleComentario : MonoBehaviour
              Destroy(ContenedorPrincipal);
              mostrandoDialogoDetalleIndicador = false;             
      }
-    public LogicaMostrarDetalleComentario conTexto(string texto){
-        this.textoAMostrar = texto;
+
+     private string titulo;
+     public LogicaMostrarDetalleComentario conTitulo(string titulo){
+         this.titulo = titulo;
+         return this;
+     }
+     private string mensaje;
+    public LogicaMostrarDetalleComentario conMensaje(string mensaje){
+        this.mensaje = mensaje;
         return this;
     }
 
     public void ActualizarContenido(){
-        contenedor_texto.text = textoAMostrar;
+        contenedor_texto.text = mensaje;
     }
 
 
