@@ -17,7 +17,7 @@ public class PruebasConcepto : MonoBehaviour
         Comentario comentario = marcador.convertirAObjeto<Comentario>();
         GameObject apun = Instantiate(apuntador,new Vector3(0f,0f,0f),Quaternion.identity);
 
-        ManejadorIndicador manejador = apun.GetComponent("ManejadorIndicador") as ManejadorIndicador;
+        ManejadorMarcadorDetalle manejador = apun.GetComponent("ManejadorIndicador") as ManejadorMarcadorDetalle;
         manejador.conComentario(comentario).actualizarVista();
 
         Debug.Log(comentario.coordenadas.x);
