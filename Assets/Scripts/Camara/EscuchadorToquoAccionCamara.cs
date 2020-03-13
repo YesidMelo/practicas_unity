@@ -16,8 +16,8 @@ public class EscuchadorToquoAccionCamara : MonoBehaviour
     private bool escuchadorToqueCursor(){
 
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("Click mouse izquierdo ");
-            inicializaElementosDePosicion();
+            //Debug.Log("Click mouse izquierdo ");
+            //inicializaElementosDePosicion();
             //verificaPosisionMouse();
             return true;
         }
@@ -44,11 +44,13 @@ public class EscuchadorToquoAccionCamara : MonoBehaviour
         
         Ray ray = new Ray(pos, Vector3.down);
         RaycastHit hit;
-        Debug.Log(pos);
+        //Debug.Log(pos);
 
+        /*
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = pos;
         cube.transform.LookAt(Camera.main.transform);
+        */
 
         if (Physics.Raycast(ray, out hit))
         {
