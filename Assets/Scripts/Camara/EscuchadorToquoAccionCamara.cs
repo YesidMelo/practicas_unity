@@ -37,15 +37,27 @@ public class EscuchadorToquoAccionCamara : MonoBehaviour
     Vector3 worldPosition;
 
     private void inicializaElementosDePosicion(){
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitData;
+        
+        Vector3 pos = Input.mousePosition;
+        pos.z = 20;
+        pos = Camera.main.ScreenToWorldPoint(pos);
+        
+        Ray ray = new Ray(pos, Vector3.down);
+        RaycastHit hit;
+        Debug.Log(pos);
 
-        if(Physics.Raycast(ray, out hitData, 1000))
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = pos;
+        cube.transform.LookAt(Camera.main.transform);
+
+        if (Physics.Raycast(ray, out hit))
         {
-            worldPosition = hitData.point;
-            Debug.Log("Posicion en el mundo");
+            hit.collider.GetComponent<Renderer>().material.color = Color.red;
+            
+            
+            //Debug.Log(hit);
         }
-
+        
     }
     private void verificaPosisionMouse(){
         Debug.Log("Entro a verificar posicion mouse");
