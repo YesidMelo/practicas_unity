@@ -10,5 +10,6 @@ public class Delgados {
     public delegate void pasarComentario(Comentario comentario);
 
     public delegate void escuchadorInput(ExtensionesInput.Entrada entrada);
+    public delegate void escuchadorItemSeleccionado <T>(T objeto ) where T : ModeloBase;
 
 }
