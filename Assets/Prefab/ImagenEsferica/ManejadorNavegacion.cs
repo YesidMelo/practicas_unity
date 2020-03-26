@@ -22,12 +22,14 @@ public class ManejadorNavegacion : MonoBehaviour
 
     private Vector3 puntoDeInicio;
     private Vector3 puntoFinal;
+    private const byte numeroToquesMinimo = 0;
+    private const byte numeroToquesMaximo = 2;
     private void manejarConTouch(){
-        if(Input.touchCount > 0){
+
+        if(Input.touchCount > numeroToquesMinimo && Input.touchCount < numeroToquesMaximo){
 
            if(Input.GetTouch(0).phase == TouchPhase.Began){
                puntoDeInicio = Input.GetTouch(0).position;
-               Debug.Log("Punto Inicial:"+puntoDeInicio);
                return;
            }
 
@@ -41,6 +43,7 @@ public class ManejadorNavegacion : MonoBehaviour
            }
 
         }
+        
     }
 
     private void rotarCamaraVertical(float movimiento){
@@ -63,31 +66,6 @@ public class ManejadorNavegacion : MonoBehaviour
         }
 
         ContenedorCamara.transform.Rotate(0f,velocidadRotacion*Time.deltaTime,0f);
-    }
-
-    
-
-
-    private void ponerEscuchadores(){
-        /*
-        mirarArriba.onClick.AddListener(()=>{ 
-            Camera.main.transform.Rotate(-velocidadRotacion*Time.deltaTime,0f,0f);
-         });
-
-        mirarAbajo.onClick.AddListener(()=>{ 
-            Camera.main.transform.Rotate(velocidadRotacion*Time.deltaTime,0f,0f);
-         });
-
-        mirarIzquierda.onClick.AddListener(()=>{ 
-            ContenedorCamara.transform.Rotate(0f,-velocidadRotacion*Time.deltaTime,0f);
-         });
-
-        mirarDerecha.onClick.AddListener(()=>{ 
-            ContenedorCamara.transform.Rotate(0f,velocidadRotacion*Time.deltaTime,0f);
-         });
-         */
-    }
-
-    
+    }    
     
 }
