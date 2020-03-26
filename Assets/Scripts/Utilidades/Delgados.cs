@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Delgados {
+public class Delegados {
 
     public delegate void pasarGameObject(GameObject objeto);
     public delegate void pasarFloat(float numeroFloat);
@@ -12,4 +12,5 @@ public class Delgados {
     public delegate void escuchadorInput(ExtensionesInput.Entrada entrada);
     public delegate void escuchadorItemSeleccionado <T>(T objeto ) where T : ModeloBase;
 
+    public delegate void escuchadorString(string texto);
 }

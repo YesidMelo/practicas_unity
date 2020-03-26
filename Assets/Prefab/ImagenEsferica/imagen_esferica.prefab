@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e2293c6e2894478225411cf4a30cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marcador: {fileID: 0}
 --- !u!114 &114865162871826592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,8 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7480c1d07872a147bfdd9103e2b49d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ContenedorCamara: {fileID: 0}
-  mirarArriba: {fileID: 0}
-  mirarAbajo: {fileID: 0}
-  mirarIzquierda: {fileID: 0}
-  mirarDerecha: {fileID: 0}
+  ContenedorCamara: {fileID: 2621513079661928238, guid: 4a403218ee5db7f4a83c1a8a17b32a42,
+    type: 3}

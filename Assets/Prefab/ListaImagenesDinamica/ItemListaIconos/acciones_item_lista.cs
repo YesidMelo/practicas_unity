@@ -39,8 +39,8 @@ public class acciones_item_lista : MonoBehaviour
         return this;
     }
 
-    private Delgados.escuchadorItemSeleccionado<DetalleIcono> itemSeleccionado;
-    public acciones_item_lista conEscuchadorItemSeleccionado(Delgados.escuchadorItemSeleccionado<DetalleIcono> itemSeleccionado){
+    private Delegados.escuchadorItemSeleccionado<DetalleIcono> itemSeleccionado;
+    public acciones_item_lista conEscuchadorItemSeleccionado(Delegados.escuchadorItemSeleccionado<DetalleIcono> itemSeleccionado){
         this.itemSeleccionado = itemSeleccionado;
         return this;
     }

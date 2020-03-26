@@ -10,7 +10,7 @@ public static class ExtensionesInput {
         TOQUE_PANTALLA_CELULAR
     }
 
-    public static void tipoEntrada(this Input entrada,Delgados.escuchadorInput respuesta){
+    public static void tipoEntrada(this Input entrada,Delegados.escuchadorInput respuesta){
         if(Input.GetMouseButtonDown(0)){
             Debug.Log("Click mouse izquierdo ");
             respuesta(Entrada.CLICK_IZQUIERDO_MOUSE);

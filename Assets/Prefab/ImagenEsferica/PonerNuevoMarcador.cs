@@ -53,11 +53,13 @@ public class PonerNuevoMarcador : MonoBehaviour
         RaycastHit hit;
         //Debug.Log(pos);
 
+        Instantiate(marcador,puntoDeInicio,Quaternion.identity);
         
+        /*
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = puntoDeInicio;
         cube.transform.LookAt(Camera.main.transform);
-
+        */
         
     }
     
