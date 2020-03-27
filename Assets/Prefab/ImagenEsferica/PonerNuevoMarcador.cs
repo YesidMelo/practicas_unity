@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class PonerNuevoMarcador : MonoBehaviour
 {
     
-    public GameObject marcador;
+    public Canvas dialogo;
 
     void Update()
     {
@@ -45,15 +45,18 @@ public class PonerNuevoMarcador : MonoBehaviour
     }
 
      private void ponerMarcador(){
-        
+        if(ManejadorDialogoCreacion.estoyMostrandome){ return; }
+
         puntoDeInicio.z = 20;
         puntoDeInicio = Camera.main.ScreenToWorldPoint(puntoDeInicio);
-        
+        Canvas dialogoCreador = Instantiate(dialogo,new Vector2 (0, 0), Quaternion.identity);
+        dialogoCreador.GetComponent<ManejadorDialogoCreacion>().conCoordenadas(puntoDeInicio);
+        /*
         Ray ray = new Ray(puntoDeInicio, Vector3.down);
-        RaycastHit hit;
+        RaycastHit hit;*/
         //Debug.Log(pos);
 
-        Instantiate(marcador,puntoDeInicio,Quaternion.identity);
+        //Instantiate(marcador,puntoDeInicio,Quaternion.identity);
         
         /*
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);

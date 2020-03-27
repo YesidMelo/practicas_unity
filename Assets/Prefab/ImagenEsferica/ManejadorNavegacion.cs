@@ -25,7 +25,7 @@ public class ManejadorNavegacion : MonoBehaviour
     private const byte numeroToquesMinimo = 0;
     private const byte numeroToquesMaximo = 2;
     private void manejarConTouch(){
-
+        if(ManejadorDialogoCreacion.estoyMostrandome){ return ; }
         if(Input.touchCount > numeroToquesMinimo && Input.touchCount < numeroToquesMaximo){
 
            if(Input.GetTouch(0).phase == TouchPhase.Began){

@@ -3,7 +3,17 @@ guid: 498df0818ae248b45b49374682bbba07
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Agua: {instanceID: 0}
+  - Luz: {instanceID: 0}
+  - Gas: {instanceID: 0}
+  - Mantenimiento: {instanceID: 0}
+  - Parabolica: {instanceID: 0}
+  - ImagenSeleccionada: {instanceID: 0}
+  - boton_aceptar: {instanceID: 0}
+  - boton_cancelar: {instanceID: 0}
+  - marcador: {fileID: 1090941565674348141, guid: 12df467586c4dab43a86c88a80302a77,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

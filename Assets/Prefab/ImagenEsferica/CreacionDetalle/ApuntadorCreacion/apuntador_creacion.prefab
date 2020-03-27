@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090941565674348115}
   - component: {fileID: 1090941565674348140}
+  - component: {fileID: 114926186492957996}
   m_Layer: 0
   m_Name: apuntador_creacion
   m_TagString: Untagged
@@ -136,3 +137,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9825ff0283e10be47a3ac60269b0132d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114926186492957996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090941565674348141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef7001c3a79801478dd738ef8dd83bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agua: {fileID: 21300000, guid: 218d963079dfff84aa7e47a425bae58c, type: 3}
+  Luz: {fileID: 21300000, guid: d5da859149455544f89507e831d8041e, type: 3}
+  Gas: {fileID: 21300000, guid: 71a9114117296c642b46025653948fff, type: 3}
+  Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
+  Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
+  icono: {fileID: 1090941564284816071}
