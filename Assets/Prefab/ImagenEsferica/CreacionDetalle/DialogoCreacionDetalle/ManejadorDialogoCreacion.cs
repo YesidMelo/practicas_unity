@@ -62,7 +62,6 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     private void asignarIconoAsignado(string identificador){
 
         identificadorImagenSeleccionada = identificador;
-        Debug.Log("Identificador seleccionado "+ identificador);
         spriteSeleccionado = SelectorImagenes.getInstancia().buscarSpriteConID(identificadorImagenSeleccionada);
         ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
         
@@ -128,8 +127,14 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     }
 
     public void actualizaVista(){
-        Debug.Log("Actualiza vista dialogo");
+        if(comentario == null ){ return; }
+        ponerIconoSeleccionado();
         
+    }
+
+    private void ponerIconoSeleccionado(){
+        spriteSeleccionado = SelectorImagenes.getInstancia().buscarSpriteConID(comentario.icono);
+        ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
     }
 
 }
