@@ -15,7 +15,7 @@ public class SelectorRol : MonoBehaviour
         operario = 2,
     }
 
-    public static Roles RolSeleccionado = Roles.operario; 
+    public static Roles RolSeleccionado = Roles.Supervisor; 
 
     void Start()
     {

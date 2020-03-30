@@ -85,9 +85,18 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         });
     }
 
+    
     private void crearApuntador(){
         GameObject marcadorCreado = Instantiate(marcador,coordenadas,Quaternion.identity);
-        marcadorCreado.GetComponent<DetalleApuntadorDetalle>().conDetalleApuntador(generarComentario()).actualizarMarcador();
+
+        marcadorCreado
+        .GetComponent<DetalleApuntadorDetalle>()
+        .conDetalleApuntador(generarComentario())
+        .actualizarMarcador();
+
+        if(escuchadorGameObject == null ){ return; }
+        escuchadorGameObject(marcadorCreado);
+
     }
 
     private Comentario generarComentario(){
@@ -99,6 +108,12 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         comentario.icono = identificadorImagenSeleccionada;
         comentario.mensaje = TextoEntrada.text;
         return comentario;
+    }
+
+    private Delegados.pasarGameObject escuchadorGameObject;
+    public ManejadorDialogoCreacion conEscuchadorMarcadorCreado(Delegados.pasarGameObject escuchadorGameObject){
+        this.escuchadorGameObject = escuchadorGameObject;
+        return this;
     }  
 
     private void destruirme(){

@@ -74,15 +74,34 @@ public class PonerNuevoMarcador : MonoBehaviour
         return apuntadorSeleccionado != null ;
     }
 
-     private void ponerMarcador(){
+    private ArrayList listaMarcadores = new ArrayList(); 
+    private void ponerMarcador(){
         
-
         puntoDeInicio.z = 20;
         puntoDeInicio = Camera.main.ScreenToWorldPoint(puntoDeInicio);
         Canvas dialogoCreador = Instantiate(dialogo,new Vector2 (0, 0), Quaternion.identity);
-        dialogoCreador.GetComponent<ManejadorDialogoCreacion>().conCoordenadas(puntoDeInicio);
+        dialogoCreador
+            .GetComponent<ManejadorDialogoCreacion>()
+            .conCoordenadas(puntoDeInicio)
+            .conEscuchadorMarcadorCreado((GameObject marcadorCreado) => {
+                listaMarcadores.Add(marcadorCreado);
+
+                traerListaComentarios();
+            });
         
-        
+    }
+
+    public string traerListaComentarios(){
+        Comentario[] listaComentarios = new Comentario[listaMarcadores.Count];
+        int contador = 0;
+        foreach(GameObject marcador in listaMarcadores){
+            Comentario comentario = marcador.GetComponent<DetalleApuntadorDetalle>().getComentario();
+            listaComentarios[contador] = comentario;
+            contador++;
+        }
+
+        Debug.Log("Lista comentarios "+listaComentarios.convertirAJSON());
+        return "";
     }
     
 }
