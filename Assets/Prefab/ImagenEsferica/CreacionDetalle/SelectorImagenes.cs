@@ -81,4 +81,5 @@ public class SelectorImagenes : MonoBehaviour
     }
 
     
+    
 }

@@ -22,11 +22,13 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     public Button boton_aceptar;
     public Button boton_cancelar;
     public GameObject marcador;
+    public InputField TextoEntrada;
     
 
     private void Start() {
         secuenciaInicio();
     }
+
 
     private void secuenciaInicio(){
         estoyMostrandome = true;
@@ -74,7 +76,7 @@ public class ManejadorDialogoCreacion : MonoBehaviour
                 destruirme();
                 return;
             }
-            
+            escuchadorComentario(generarComentario());
             destruirme();
         });
 
@@ -95,6 +97,8 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         }        
 
         comentario.icono = identificadorImagenSeleccionada;
+        Debug.Log(" Objeto entrada = "+TextoEntrada.text);
+        comentario.mensaje = TextoEntrada.text;
         return comentario;
     }  
 
@@ -129,12 +133,16 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     public void actualizaVista(){
         if(comentario == null ){ return; }
         ponerIconoSeleccionado();
-        
+        poneTexto();
     }
 
     private void ponerIconoSeleccionado(){
         spriteSeleccionado = SelectorImagenes.getInstancia().buscarSpriteConID(comentario.icono);
         ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
+    }
+
+    private void poneTexto(){
+        TextoEntrada.text = comentario.mensaje;
     }
 
 }

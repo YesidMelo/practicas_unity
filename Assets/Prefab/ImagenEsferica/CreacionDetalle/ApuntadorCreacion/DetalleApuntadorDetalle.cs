@@ -24,8 +24,12 @@ public class DetalleApuntadorDetalle : MonoBehaviour
     }
 
     public void mostrarDialogo(){
-        Debug.Log("Mostrar Dialogo");
         Canvas dialogoCreador = Instantiate(DialogoCreacion,new Vector2 (0, 0), Quaternion.identity);
-        dialogoCreador.GetComponent<ManejadorDialogoCreacion>().conComentario(comentario).actualizaVista();
+
+        dialogoCreador
+            .GetComponent<ManejadorDialogoCreacion>()
+            .conComentario(comentario)
+            .conEscuchadorComentario((Comentario comentario) =>{ Debug.Log("Llego el nuevo comentario"); })
+            .actualizaVista();
     }
 }
