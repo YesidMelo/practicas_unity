@@ -2104,6 +2104,7 @@ GameObject:
   - component: {fileID: 1005858190329697375}
   - component: {fileID: 1005858190329697344}
   - component: {fileID: 1005858190329697372}
+  - component: {fileID: 114065963577628152}
   m_Layer: 5
   m_Name: dialogo_creacion_detalle
   m_TagString: Untagged
@@ -2218,7 +2219,23 @@ MonoBehaviour:
   boton_cancelar: {fileID: 1005858189466291216}
   marcador: {fileID: 1090941565674348141, guid: 12df467586c4dab43a86c88a80302a77,
     type: 3}
-  contenedorPrinicipal: {fileID: 1005858190329697374}
+--- !u!114 &114065963577628152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005858190329697345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a35e22bacc13604998c2ab76cff7655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agua: {fileID: 21300000, guid: 218d963079dfff84aa7e47a425bae58c, type: 3}
+  Luz: {fileID: 21300000, guid: d5da859149455544f89507e831d8041e, type: 3}
+  Gas: {fileID: 21300000, guid: 71a9114117296c642b46025653948fff, type: 3}
+  Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
+  Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
 --- !u!1 &1005858190427559034
 GameObject:
   m_ObjectHideFlags: 0

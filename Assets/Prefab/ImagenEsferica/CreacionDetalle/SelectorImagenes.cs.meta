@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2a35e22bacc13604998c2ab76cff7655
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Agua: {fileID: 21300000, guid: 218d963079dfff84aa7e47a425bae58c, type: 3}
+  - Luz: {fileID: 21300000, guid: d5da859149455544f89507e831d8041e, type: 3}
+  - Gas: {fileID: 21300000, guid: 71a9114117296c642b46025653948fff, type: 3}
+  - Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
+  - Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,12 +6,8 @@ using UnityEngine.UI;
 public class DetalleApuntadorDetalle : MonoBehaviour
 {
 
-    public Sprite Agua;
-    public Sprite Luz;
-    public Sprite Gas;
-    public Sprite Mantenimiento;
-    public Sprite Parabolica;
     public GameObject icono;
+    public Canvas DialogoCreacion;
     
 
 
@@ -23,26 +19,13 @@ public class DetalleApuntadorDetalle : MonoBehaviour
 
     public void actualizarMarcador(){
         if(comentario == null ){ return; }
-        Texture2D textura;
-        switch (comentario.icono)
-        {
-            case "2":
-                textura = Luz.convertirATextura2D();
-                break;
-            case "3":
-                textura = Gas.convertirATextura2D();
-                break;
-            case "4":
-                textura = Mantenimiento.convertirATextura2D();
-                break;
-            case "5":
-                textura = Parabolica.convertirATextura2D();
-                break;
-            case "1":
-            default:
-            textura = Agua.convertirATextura2D();
-            break;
-        }
+        Texture2D textura = SelectorImagenes.getInstancia().buscarTexturaConID(comentario.icono);
         icono.GetComponent<Renderer>().material.mainTexture = textura;
+    }
+
+    public void mostrarDialogo(){
+        Debug.Log("Mostrar Dialogo");
+        Canvas dialogoCreador = Instantiate(DialogoCreacion,new Vector2 (0, 0), Quaternion.identity);
+        dialogoCreador.GetComponent<ManejadorDialogoCreacion>().conComentario(comentario).actualizaVista();
     }
 }

@@ -25,6 +25,10 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     
 
     private void Start() {
+        secuenciaInicio();
+    }
+
+    private void secuenciaInicio(){
         estoyMostrandome = true;
         poneEscuchadoresImagenes();
         poneEscuchadoresBotones();
@@ -33,60 +37,67 @@ public class ManejadorDialogoCreacion : MonoBehaviour
     private void poneEscuchadoresImagenes(){
 
         Agua.GetComponent<ManejadorClickIcono>().conEscuchador((string nombre)=>{ 
-            spriteSeleccionado = Agua.GetComponent<Image>().sprite;
-            ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
-            identificadorImagenSeleccionada = "1";
+            asignarIconoAsignado("1");
         });
 
         Luz.GetComponent<ManejadorClickIcono>().conEscuchador((string nombre)=>{ 
-            spriteSeleccionado = Luz.GetComponent<Image>().sprite;
-            ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
-            identificadorImagenSeleccionada = "2";
+            asignarIconoAsignado("2");
         });
 
         Gas.GetComponent<ManejadorClickIcono>().conEscuchador((string nombre)=>{ 
-            spriteSeleccionado = Gas.GetComponent<Image>().sprite;
-            ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
-            identificadorImagenSeleccionada = "3";
+            asignarIconoAsignado("3");
         });
 
         Mantenimiento.GetComponent<ManejadorClickIcono>().conEscuchador((string nombre)=>{ 
-            spriteSeleccionado = Mantenimiento.GetComponent<Image>().sprite;
-            ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
-            identificadorImagenSeleccionada = "4";
+            asignarIconoAsignado("4");
         });
 
         Parabolica.GetComponent<ManejadorClickIcono>().conEscuchador((string nombre)=>{ 
-            spriteSeleccionado = Parabolica.GetComponent<Image>().sprite;
-            ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
-            identificadorImagenSeleccionada = "5";
+            asignarIconoAsignado("5");
         });
 
 
     }
 
+    private void asignarIconoAsignado(string identificador){
+
+        identificadorImagenSeleccionada = identificador;
+        Debug.Log("Identificador seleccionado "+ identificador);
+        spriteSeleccionado = SelectorImagenes.getInstancia().buscarSpriteConID(identificadorImagenSeleccionada);
+        ImagenSeleccionada.GetComponent<Image>().sprite = spriteSeleccionado;
+        
+    }
+
     private void poneEscuchadoresBotones(){
         boton_aceptar.onClick.AddListener( ()=>{ 
-                GameObject marcadorCreado = Instantiate(marcador,coordenadas,Quaternion.identity);
-                marcadorCreado.GetComponent<DetalleApuntadorDetalle>().conDetalleApuntador(generarComentario()).actualizarMarcador();
+            if(comentario == null){
+                crearApuntador();
                 destruirme();
+                return;
+            }
+            
+            destruirme();
         });
+
         boton_cancelar.onClick.AddListener( ()=>{ 
                 destruirme();
         });
     }
 
-    private Comentario generarComentario(){
-        Comentario comentario = new Comentario();
-        comentario.icono = identificadorImagenSeleccionada;
-        return comentario;
+    private void crearApuntador(){
+        GameObject marcadorCreado = Instantiate(marcador,coordenadas,Quaternion.identity);
+        marcadorCreado.GetComponent<DetalleApuntadorDetalle>().conDetalleApuntador(generarComentario()).actualizarMarcador();
     }
 
-    private Vector3 coordenadas;
-    public ManejadorDialogoCreacion conCoordenadas(Vector3 coordenadas){
-        this.coordenadas = coordenadas;
-        return this;
-    }   
+    private Comentario generarComentario(){
+        
+        if(comentario == null ){
+            comentario = new Comentario();
+        }        
+
+        comentario.icono = identificadorImagenSeleccionada;
+        return comentario;
+    }  
 
     private void destruirme(){
                 
@@ -98,5 +109,27 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         estoyMostrandome = false;
     }
 
+    private Vector3 coordenadas;
+    public ManejadorDialogoCreacion conCoordenadas(Vector3 coordenadas){
+        this.coordenadas = coordenadas;
+        return this;
+    }
+
+    private Comentario comentario;
+    public ManejadorDialogoCreacion conComentario(Comentario comentario){
+        this.comentario = comentario ;
+        return this;
+    }
+    
+    private Delegados.pasarComentario escuchadorComentario;
+    public ManejadorDialogoCreacion conEscuchadorComentario(Delegados.pasarComentario escuchadorComentario){
+        this.escuchadorComentario = escuchadorComentario;
+        return this;
+    }
+
+    public void actualizaVista(){
+        Debug.Log("Actualiza vista dialogo");
+        
+    }
 
 }

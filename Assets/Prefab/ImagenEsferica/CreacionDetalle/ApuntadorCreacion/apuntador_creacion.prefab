@@ -155,3 +155,5 @@ MonoBehaviour:
   Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
   Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
   icono: {fileID: 1090941564284816071}
+  DialogoCreacion: {fileID: 1005858190329697374, guid: 5f01de02aa96ef243a3f08c6ca98bbc1,
+    type: 3}
