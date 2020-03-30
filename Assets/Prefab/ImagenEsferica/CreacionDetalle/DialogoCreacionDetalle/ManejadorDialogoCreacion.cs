@@ -97,7 +97,6 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         }        
 
         comentario.icono = identificadorImagenSeleccionada;
-        Debug.Log(" Objeto entrada = "+TextoEntrada.text);
         comentario.mensaje = TextoEntrada.text;
         return comentario;
     }  

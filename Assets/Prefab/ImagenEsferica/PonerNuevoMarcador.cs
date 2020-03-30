@@ -19,7 +19,11 @@ public class PonerNuevoMarcador : MonoBehaviour
     private bool puedoPonerMarcador = false;
 
     private void manejarConTouch(){
-        
+        if( SelectorRol.RolSeleccionado !=  SelectorRol.Roles.Supervisor ){ 
+            puedoPonerMarcador = false;
+            return; 
+        }
+
         if(Input.touchCount > numeroToquesMinimo && Input.touchCount < numeroToquesMaximo){
 
            if(Input.GetTouch(0).phase == TouchPhase.Began){

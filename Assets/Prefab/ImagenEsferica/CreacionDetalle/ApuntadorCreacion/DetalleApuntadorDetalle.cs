@@ -29,7 +29,9 @@ public class DetalleApuntadorDetalle : MonoBehaviour
         dialogoCreador
             .GetComponent<ManejadorDialogoCreacion>()
             .conComentario(comentario)
-            .conEscuchadorComentario((Comentario comentario) =>{ Debug.Log("Llego el nuevo comentario"); })
+            .conEscuchadorComentario((Comentario comentario) =>{
+                 Debug.Log("Llego el nuevo comentario"); 
+                })
             .actualizaVista();
     }
 }

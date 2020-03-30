@@ -12,19 +12,16 @@ public static class ExtensionesInput {
 
     public static void tipoEntrada(this Input entrada,Delegados.escuchadorInput respuesta){
         if(Input.GetMouseButtonDown(0)){
-            Debug.Log("Click mouse izquierdo ");
             respuesta(Entrada.CLICK_IZQUIERDO_MOUSE);
             return ;
         }
 
         if(Input.GetMouseButtonDown(1)){
-            Debug.Log("Click mouse derecho");
             respuesta(Entrada.CLICK_DERECHO_MOUSE);
             return ;
         }
 
         if(Input.GetMouseButtonDown(2)){
-            Debug.Log("Click mouse centro");
             respuesta(Entrada.CLICK_CENTRAL_MOUSE);
             return ;
         }

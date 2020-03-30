@@ -27,11 +27,7 @@ public class SelectorImagenes : MonoBehaviour
 
 
     public Texture2D buscarTexturaConID(string id){
-        if(Luz == null ){
-            Debug.Log("buscarTexturaConID : Estado sprit  es nulo" );
-        }else {
-            Debug.Log("buscarTexturaConID : Estado sprit esta lleno" );
-        }
+        
         
         Texture2D textura = null;
         switch (id)
@@ -57,11 +53,7 @@ public class SelectorImagenes : MonoBehaviour
     }
 
      public Sprite buscarSpriteConID(string id){
-        if(Luz == null ){
-            Debug.Log("buscarSpriteConID : Estado sprit  es nulo" );
-        }else {
-            Debug.Log("buscarSpriteConID : Estado sprit esta lleno" );
-        }
+        
         switch (id)
         {
             case "2":
