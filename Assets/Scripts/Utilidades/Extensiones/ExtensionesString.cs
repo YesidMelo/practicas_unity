@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public static class ExtensionesString {
 
@@ -21,8 +22,9 @@ public static class ExtensionesString {
         return objetoFinal;
     }
 
-    public static string convertirAFloat(this string numero) {
-        return "";
-    }
+   public static T[] convertirAArreglosObjetos <T> (this string json) where T : ModeloBase{
+       T[] tmp = JsonConvert.DeserializeObject<T[]>(json);
+       return tmp;
+   }
 
 }

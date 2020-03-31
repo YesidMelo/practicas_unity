@@ -85,8 +85,6 @@ public class PonerNuevoMarcador : MonoBehaviour
             .conCoordenadas(puntoDeInicio)
             .conEscuchadorMarcadorCreado((GameObject marcadorCreado) => {
                 listaMarcadores.Add(marcadorCreado);
-
-                traerListaComentarios();
             });
         
     }
@@ -99,9 +97,7 @@ public class PonerNuevoMarcador : MonoBehaviour
             listaComentarios[contador] = comentario;
             contador++;
         }
-
-        Debug.Log("Lista comentarios "+listaComentarios.convertirAJSON());
-        return "";
+        return listaComentarios.convertirAJSON();
     }
     
 }
