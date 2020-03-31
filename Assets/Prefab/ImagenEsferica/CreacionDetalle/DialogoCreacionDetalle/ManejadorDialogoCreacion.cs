@@ -103,14 +103,15 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         
         if(comentario == null ){
             comentario = new Comentario();
+            comentario.coordenadas = new Coordenadas();
+            comentario.coordenadas.x = coordenadas.x;
+            comentario.coordenadas.y = coordenadas.y;
+            comentario.coordenadas.z = coordenadas.z;
         }        
 
         comentario.icono = identificadorImagenSeleccionada;
         comentario.mensaje = TextoEntrada.text;
-        comentario.coordenadas = new Coordenadas();
-        comentario.coordenadas.x = coordenadas.x;
-        comentario.coordenadas.y = coordenadas.y;
-        comentario.coordenadas.z = coordenadas.z;
+        
         return comentario;
     }
 

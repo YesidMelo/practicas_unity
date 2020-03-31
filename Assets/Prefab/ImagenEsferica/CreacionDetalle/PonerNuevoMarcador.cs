@@ -74,7 +74,6 @@ public class PonerNuevoMarcador : MonoBehaviour
         return apuntadorSeleccionado != null ;
     }
 
-    private ArrayList listaMarcadores = new ArrayList(); 
     private void ponerMarcador(){
         
         puntoDeInicio.z = 20;
@@ -84,20 +83,11 @@ public class PonerNuevoMarcador : MonoBehaviour
             .GetComponent<ManejadorDialogoCreacion>()
             .conCoordenadas(puntoDeInicio)
             .conEscuchadorMarcadorCreado((GameObject marcadorCreado) => {
-                listaMarcadores.Add(marcadorCreado);
+                CargarMarcadores.listaMarcadores.Add(marcadorCreado);
             });
         
     }
 
-    public string traerListaComentarios(){
-        Comentario[] listaComentarios = new Comentario[listaMarcadores.Count];
-        int contador = 0;
-        foreach(GameObject marcador in listaMarcadores){
-            Comentario comentario = marcador.GetComponent<DetalleApuntadorDetalle>().getComentario();
-            listaComentarios[contador] = comentario;
-            contador++;
-        }
-        return listaComentarios.convertirAJSON();
-    }
+    
     
 }

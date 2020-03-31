@@ -5,6 +5,7 @@ using UnityEngine;
 public class CargarMarcadores : MonoBehaviour
 {
 
+    public static ArrayList listaMarcadores = new ArrayList();
     public GameObject Apuntador;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class CargarMarcadores : MonoBehaviour
                 .GetComponent<DetalleApuntadorDetalle>()
                 .conDetalleApuntador(comentario)
                 .actualizarMarcador();
+
+            listaMarcadores.Add(nuevoApuntador);
         }
     }
 
@@ -28,5 +31,16 @@ public class CargarMarcadores : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string traerListaComentarios(){
+        Comentario[] listaComentarios = new Comentario[CargarMarcadores.listaMarcadores.Count];
+        int contador = 0;
+        foreach(GameObject marcador in CargarMarcadores.listaMarcadores){
+            Comentario comentario = marcador.GetComponent<DetalleApuntadorDetalle>().getComentario();
+            listaComentarios[contador] = comentario;
+            contador++;
+        }
+        return listaComentarios.convertirAJSON();
     }
 }
