@@ -19,8 +19,17 @@ public class DetalleApuntadorDetalle : MonoBehaviour
 
     public void actualizarMarcador(){
         if(comentario == null ){ return; }
+        actualizarIcono();
+        actualizarPocicion();
+    }
+
+    private void actualizarIcono(){
         Texture2D textura = SelectorImagenes.getInstancia().buscarTexturaConID(comentario.icono);
         icono.GetComponent<Renderer>().material.mainTexture = textura;
+    }
+
+    private void actualizarPocicion(){
+        transform.position = new Vector3(comentario.coordenadas.x,comentario.coordenadas.y,comentario.coordenadas.z);
     }
 
     public void mostrarDialogo(){

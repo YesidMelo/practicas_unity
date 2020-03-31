@@ -110,7 +110,7 @@ public class ManejadorDialogoCreacion : MonoBehaviour
         comentario.coordenadas = new Coordenadas();
         comentario.coordenadas.x = coordenadas.x;
         comentario.coordenadas.y = coordenadas.y;
-        comentario.coordenadas.z = coordenadas.x;
+        comentario.coordenadas.z = coordenadas.z;
         return comentario;
     }
 
