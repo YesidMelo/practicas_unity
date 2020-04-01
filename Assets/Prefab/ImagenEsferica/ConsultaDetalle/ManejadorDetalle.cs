@@ -24,7 +24,6 @@ public class ManejadorDetalle : MonoBehaviour
     }
 
     public void actualizarVista(){
-        Debug.Log("Mostrar elementos");
         if(this.comentario == null ){ return ; }
         ponerIcono();
         ponerTexto();
