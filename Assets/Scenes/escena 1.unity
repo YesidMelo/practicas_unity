@@ -363,6 +363,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2621513080129684632}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684118459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684118454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a35e22bacc13604998c2ab76cff7655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agua: {fileID: 21300000, guid: 218d963079dfff84aa7e47a425bae58c, type: 3}
+  Luz: {fileID: 21300000, guid: d5da859149455544f89507e831d8041e, type: 3}
+  Gas: {fileID: 21300000, guid: 71a9114117296c642b46025653948fff, type: 3}
+  Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
+  Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
 --- !u!1 &1887442984 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 843302017462553, guid: ae7cf8d87fdcf644caff5d30c09e1fab,
@@ -378,14 +395,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1887442984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a35e22bacc13604998c2ab76cff7655, type: 3}
+  m_Script: {fileID: 11500000, guid: 28d132c3974da664f97d6abb0a6b92f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agua: {fileID: 21300000, guid: 218d963079dfff84aa7e47a425bae58c, type: 3}
-  Luz: {fileID: 21300000, guid: d5da859149455544f89507e831d8041e, type: 3}
-  Gas: {fileID: 21300000, guid: 71a9114117296c642b46025653948fff, type: 3}
-  Mantenimiento: {fileID: 21300000, guid: 9b68580869913c2468ab4223df482552, type: 3}
-  Parabolica: {fileID: 21300000, guid: e82c91029d48a9c4c97b54425b7b04b0, type: 3}
+  imagenFondo: {fileID: 2800000, guid: 58fd6c4770667ef448ce9c293a50245e, type: 3}
 --- !u!1001 &2621513080129684632
 PrefabInstance:
   m_ObjectHideFlags: 0

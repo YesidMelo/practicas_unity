@@ -15,12 +15,25 @@ public class SelectorRol : MonoBehaviour
         operario = 2,
     }
 
-    public static Roles RolSeleccionado = Roles.operario; 
+    public static Roles RolSeleccionado = Roles.Supervisor; 
 
     void Start()
     {
         if(instancia == null ){
             instancia = this;
+        }
+    }
+
+    public void conRol(string rol){
+        switch (rol)
+        {
+            case "1":
+                RolSeleccionado = Roles.Supervisor;
+                break;
+            case "2":
+            default:
+                RolSeleccionado = Roles.operario;
+            break;
         }
     }
 

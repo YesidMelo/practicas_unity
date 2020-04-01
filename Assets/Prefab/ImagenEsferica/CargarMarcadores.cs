@@ -7,11 +7,7 @@ public class CargarMarcadores : MonoBehaviour
 
     public static ArrayList listaMarcadores = new ArrayList();
     public GameObject Apuntador;
-    // Start is called before the first frame update
-    void Start()
-    {
-        cargarListaComentarios(Mocks.arregloMarcadores);
-    }
+    
 
     public void cargarListaComentarios(string jsonComentarios){
         Comentario [] comentarios= jsonComentarios.convertirAArreglosObjetos<Comentario>();
