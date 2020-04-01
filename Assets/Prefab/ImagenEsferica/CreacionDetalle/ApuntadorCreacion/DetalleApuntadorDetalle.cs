@@ -25,8 +25,10 @@ public class DetalleApuntadorDetalle : MonoBehaviour
     }
 
     private void actualizarIcono(){
+        
         Texture2D textura = SelectorImagenes.getInstancia().buscarTexturaConID(comentario.icono);
         icono.GetComponent<Renderer>().material.mainTexture = textura;
+        
     }
 
     private void actualizarPocicion(){
